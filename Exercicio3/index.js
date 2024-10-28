@@ -9,7 +9,7 @@ const calcularTempoRestante = (dataFutura) => {
     const segundosDoDia = 24 * segundosDeUmaHora;
 
     const dias = Math.floor(diferencaDeDatas / segundosDoDia);
-    const horas = Math.floor((diferencaDeDatas / segundosDoDia) / segundosDeUmaHora);
+    const horas = Math.floor((diferencaDeDatas % segundosDoDia) / segundosDeUmaHora);
     const minutos = Math.floor((diferencaDeDatas % segundosDeUmaHora) / segundosDeUmMinuto);
     const segundos = Math.floor((diferencaDeDatas % segundosDeUmMinuto) / 1000)   
 
@@ -31,7 +31,7 @@ const atualizarTemporizador = () => {
     const tempoRestante = calcularTempoRestante(dataFutura);
     
     document.getElementById('dias').innerText = `Dias ${tempoRestante.dias}`;
-    document.getElementById('hora').innerText = `Horas ${tempoRestante.horas}`;
+    document.getElementById('horas').innerText = `Horas ${tempoRestante.horas}`;
     document.getElementById('minutos').innerText = `Minutos ${tempoRestante.minutos}`;
     document.getElementById('segundos').innerText = `Segundos ${tempoRestante.segundos}`;
 
